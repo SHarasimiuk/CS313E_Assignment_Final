@@ -305,7 +305,7 @@ class ImageGraph:
             current = queue.dequeue()
             for neighbor_index in current.edges:
                 neighbor = self.vertices[neighbor_index]
-                if neighbor.visited == False and neighbor.color == current.prev_color:
+                if neighbor.visited is False and neighbor.color == current.prev_color:
                     queue.enqueue(neighbor)
                     neighbor.visit_and_set_color(color)
 
@@ -343,11 +343,11 @@ class ImageGraph:
 
         while not stack.is_empty():
             current = stack.pop()
-            if current.visited == False and current.color == start_vert.prev_color:
+            if current.visited is False and current.color == start_vert.prev_color:
                 current.visit_and_set_color(color)
                 for neighbor_index in current.edges:
                     neighbor = self.vertices[neighbor_index]
-                    if neighbor.visited == False and neighbor.color == start_vert.prev_color:
+                    if neighbor.visited is False and neighbor.color == start_vert.prev_color:
                         stack.push(neighbor)
 
 
